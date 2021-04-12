@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}question{% endblock %}
+
+{% block content %}
+    {% if get_flashed_messages.length != 0 %}
+        <p>{{get_flashed_messages()}}</p>
+    {% endif %}
+<div>
+    <h1>{{survey_title}}</h1>
+</div>
+<div class="question">
+    <h4>{{survey_questions[current_qnum].question}}</h4>
+</div>
+<form method="POST">
+    {% for index in range(survey_questions[current_qnum].choices| length) %}
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="answer-{{current_qnum}}" value="{{survey_questions[current_qnum].choices[index]}}">
+        <label for="answer-{{index}}">{{survey_questions[current_qnum].choices[index]}}</label>
+    </div>
+    {% endfor %}
+    <button class="btn btn-primary" type="submit" >Next Question</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}homepage{% endblock %}
+
+{% block content %}
+<div>
+    <h1>{{survey_title}}</h1>
+</div>
+<div>
+    <h4>{{survey_instructions}}</h4>
+</div>
+<div>
+    <a class="btn btn-primary" href="/questions/0">Start Survey</a>
+</div>
+
+{% endblock %}
